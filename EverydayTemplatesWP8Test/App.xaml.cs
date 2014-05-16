@@ -6,28 +6,12 @@ using System.Windows.Markup;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using EverydayTemplatesWP8.Resources;
-using BugSense.Core.Model;
-using BugSense;
-using EverydayTemplatesWP8.ViewModels;
+using EverydayTemplatesWP8Test.Resources;
 
-namespace EverydayTemplatesWP8
+namespace EverydayTemplatesWP8Test
 {
     public partial class App : Application
     {
-        private static MainViewModel viewModel = null;
-
-        public static MainViewModel ViewModel
-        {
-            get
-            {
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
-
-                return viewModel;
-            }
-        }
-
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -39,10 +23,8 @@ namespace EverydayTemplatesWP8
         /// </summary>
         public App()
         {
-            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "w8cad5e2");
-
             // Global handler for uncaught exceptions.
-            //UnhandledException += Application_UnhandledException;
+            UnhandledException += Application_UnhandledException;
 
             // Standard XAML initialization
             InitializeComponent();

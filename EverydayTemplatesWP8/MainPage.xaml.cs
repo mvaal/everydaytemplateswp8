@@ -8,6 +8,10 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using EverydayTemplatesWP8.Resources;
+using BugSense;
+using System.Diagnostics;
+using BugSense.Core.Model;
+using EverydayTemplatesWP8.ViewModels;
 
 namespace EverydayTemplatesWP8
 {
@@ -18,24 +22,51 @@ namespace EverydayTemplatesWP8
         {
             InitializeComponent();
 
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+            BugSenseHandler.Instance.UnhandledExceptionHandled += (sender, response) =>
+                Debug.WriteLine("Exception of type {0} handled by BugSense\r\nClient Request: {1}",
+                response.ExceptionObject.GetType(),
+                response.ClientJsonRequest);
+
+            BugSenseHandler.Instance.LoggedRequestHandled += (sender, args) =>
+            {
+                if (args.BugSenseLoggedResponseResult.RequestType == BugSenseRequestType.Event)
+                {
+                    Debug.WriteLine("Logged Request {0}\r\nServer Response: {1}",
+                        args.BugSenseLoggedResponseResult.ClientRequest,
+                        args.BugSenseLoggedResponseResult.ServerResponse);
+                }
+                else
+                {
+                    Debug.WriteLine("Logged Request {0}\r\nServer Response: {1}\r\nErrorId: {2}\r\nResolved: {3}",
+                        args.BugSenseLoggedResponseResult.ClientRequest,
+                        args.BugSenseLoggedResponseResult.ServerResponse,
+                        args.BugSenseLoggedResponseResult.ErrorId,
+                        args.BugSenseLoggedResponseResult.IsResolved ? "Yes" : "No");
+                }
+            };
+
+            DataContext = App.ViewModel;
         }
 
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            BugSenseHandler.Instance.RegisterAsyncHandlerContext();
 
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
+            if (!App.ViewModel.IsDataLoaded)
+            {
+                App.ViewModel.LoadData();
+            }
+        }
 
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        private void TemplateSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TemplateSelector.SelectedItem == null)
+                return;
+
+            var menuItem = TemplateSelector.SelectedItem as TemplateMenuItem;
+            NavigationService.Navigate(new Uri(menuItem.Url, UriKind.Relative));
+
+            TemplateSelector.SelectedItem = null;
+        }
     }
 }

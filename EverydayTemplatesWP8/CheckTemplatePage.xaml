@@ -1,0 +1,192 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="EverydayTemplatesWP8.CheckTemplatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignData SampleData/CheckTemplateViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="2" 
+                BorderBrush="White"  >
+        <Grid x:Name="ContentPanel" 
+              Grid.Row="1" 
+              Margin="20,40,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="Date" 
+                        Grid.Row="0" 
+                        Margin="0,0,0,10"
+                        Width="200"
+                        HorizontalAlignment="Right">
+                <Border BorderBrush="White" 
+                        BorderThickness="0,0,0,1">
+                    <TextBlock TextAlignment="Center" 
+                               FontSize="30"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" />
+                </Border>
+                <TextBlock HorizontalAlignment="Right" 
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Text="DATE" />
+            </StackPanel>
+            <Grid x:Name="Order" 
+                  Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" 
+                        BorderThickness="0,0,0,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" 
+                                   Width="80" 
+                                   VerticalAlignment="Bottom"
+                                   TextWrapping="Wrap" 
+                                   FontSize="14"
+                                   Text="PAY TO THE ORDER OF" />
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Bottom"
+                                   Foreground="{StaticResource PhoneAccentBrush}"
+                                   FontSize="30"
+                                   Text="[payee]" />
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Column="1" 
+                           FontSize="30"
+                           Text="$"/>
+                <Border Grid.Column="2" 
+                        Width="160"
+                        BorderBrush="White" 
+                        BorderThickness="2">
+                    <TextBlock Margin="5,1,5,1" 
+                               FontSize="30" 
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="{Binding Amount, StringFormat=0.00}"/>
+                </Border>
+            </Grid>
+            <Grid x:Name="Dollars" 
+                  Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" 
+                        BorderThickness="0,0,0,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <!--<ColumnDefinition Width="Auto"/>-->
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Bottom"
+                                   Foreground="{StaticResource PhoneAccentBrush}"
+                                   FontSize="30"
+                                   Text="{Binding WrittenAmount}" />
+                        <!--<StackPanel Grid.Column="1"
+                                    VerticalAlignment="Bottom">
+                            <Border BorderBrush="White" 
+                                    BorderThickness="0,0,0,1">
+                                <TextBlock Grid.Column="3"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="18"
+                                           Text="no" />
+                            </Border>
+                            <TextBlock Grid.Column="3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"
+                                       FontSize="18"
+                                       Text="100" />
+                        </StackPanel>-->
+                        <Rectangle Grid.Column="1"
+                                   Margin="5,0,0,0"
+                                   Height="2" 
+                                   Fill="{StaticResource PhoneAccentBrush}" />
+                        <TextBlock Grid.Column="2"
+                                   VerticalAlignment="Bottom"
+                                   FontSize="14"
+                                   Text="DOLLARS" />
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Column="2"
+                           Width="80"
+                           Text="" />
+            </Grid>
+            <Grid x:Name="MemoSig" 
+                  Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" 
+                        BorderThickness="0,0,0,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" 
+                                   VerticalAlignment="Bottom"
+                                   FontSize="14"
+                                   Text="FOR" />
+                        <TextBlock Grid.Column="1"
+                                   Margin="10,0,0,0"
+                                   VerticalAlignment="Bottom"
+                                   Foreground="{StaticResource PhoneAccentBrush}"
+                                   FontSize="30"
+                                   Text="[memo]" />
+                    </Grid>
+                </Border>
+                <Border Grid.Column="2"
+                        BorderBrush="White" 
+                        BorderThickness="0,0,0,1" >
+                    <TextBlock VerticalAlignment="Bottom"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               FontFamily="Segoe Script"
+                               FontSize="30"
+                               Text="[your signature]" />
+                </Border>
+            </Grid>
+        </Grid>
+        </Border>
+    </Grid>
+
+</phone:PhoneApplicationPage>
