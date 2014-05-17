@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{45a72e7a-d1be-4c67-aa72-5669633c52e1}" Title="Everyday Templates" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Marcus Vaal" Description="Sample description" Publisher="2 Pawns" PublisherID="{b430e9ec-0075-4252-8eaa-7f90065da4a9}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{45a72e7a-d1be-4c67-aa72-5669633c52e1}" Title="Everyday Templates" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Marcus Vaal" Description="Templates and Utilities for everyday use." Publisher="2 Pawns" PublisherID="{b430e9ec-0075-4252-8eaa-7f90065da4a9}">
+    <IconPath IsRelative="true" IsResource="false">AppIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
@@ -17,26 +17,25 @@
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="EverydayTemplatesWP8Token" TaskName="_default">
-        <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+        <TemplateIconic>
+          <SmallImageURI IsRelative="true" IsResource="false">IconicSmall.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
+          <IconImageURI IsRelative="true" IsResource="false">IconicMediumLarge.png</IconImageURI>
           <Title>Everyday Templates</Title>
-          <BackContent>
-          </BackContent>
-          <BackBackgroundImageURI>
-          </BackBackgroundImageURI>
-          <BackTitle>
-          </BackTitle>
-          <LargeBackgroundImageURI IsRelative="true" IsResource="false">
-          </LargeBackgroundImageURI>
-          <LargeBackContent />
-          <LargeBackBackgroundImageURI IsRelative="true" IsResource="false">
-          </LargeBackBackgroundImageURI>
-          <DeviceLockImageURI>
+          <Message>
+          </Message>
+          <BackgroundColor>
+          </BackgroundColor>
+          <HasLarge>false</HasLarge>
+          <LargeContent1>
+          </LargeContent1>
+          <LargeContent2>
+          </LargeContent2>
+          <LargeContent3>
+          </LargeContent3>
+          <DeviceLockImageURI IsRelative="true" IsResource="false">
           </DeviceLockImageURI>
-          <HasLarge>True</HasLarge>
-        </TemplateFlip>
+        </TemplateIconic>
       </PrimaryToken>
     </Tokens>
     <ScreenResolutions>

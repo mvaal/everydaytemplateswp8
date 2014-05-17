@@ -4,6 +4,6 @@
     xmlns:vm="clr-namespace:EverydayTemplatesWP8.ViewModels">
 
     <vm:MainViewModel.TemplateMenuItems>
-        <vm:TemplateMenuItem UniqueId="check" Header="check"/>
+        
     </vm:MainViewModel.TemplateMenuItems>
 </vm:MainViewModel>

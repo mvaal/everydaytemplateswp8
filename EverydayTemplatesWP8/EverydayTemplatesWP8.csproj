@@ -146,7 +146,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppIcon.png" />
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppIcon.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -159,6 +161,8 @@
     <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Tiles\IconicMediumLarge.png" />
+    <Content Include="Assets\Tiles\IconicSmall.png" />
     <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -166,6 +170,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BugSense\BugSense - SDK License Agreement.txt" />
+    <Content Include="IconicMediumLarge.png" />
+    <Content Include="IconicSmall.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
