@@ -19,9 +19,27 @@ namespace EverydayTemplatesWP8
             InitializeComponent();
             model = new CheckTemplateViewModel();
             model.Date = DateTime.Now;
-            model.Amount = 10000.00;
+            model.Amount = 0.00;
             DataContext = model;
-            
+            Loaded += CheckTemplatePage_Loaded;
+        }
+
+        private void CheckTemplatePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= CheckTemplatePage_Loaded;
+            AmountTextBox.Focus();
+        }
+
+        private void AmountArea_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
+        private void AmountTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
         }
     }
 }

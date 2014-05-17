@@ -15,16 +15,23 @@ namespace EverydayTemplatesWP8
 {
     public partial class App : Application
     {
-        private static MainViewModel viewModel = null;
+        bool wasRelaunched = false;
 
+        private static MainViewModel viewModel = null;
         public static MainViewModel ViewModel
         {
             get
             {
                 if (viewModel == null)
+                {
                     viewModel = new MainViewModel();
+                }
 
                 return viewModel;
+            }
+            set
+            {
+                viewModel = value;
             }
         }
 
@@ -57,7 +64,7 @@ namespace EverydayTemplatesWP8
             if (Debugger.IsAttached)
             {
                 // Display the current frame rate counters.
-                Application.Current.Host.Settings.EnableFrameRateCounter = true;
+                Application.Current.Host.Settings.EnableFrameRateCounter = false;
 
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
@@ -141,8 +148,36 @@ namespace EverydayTemplatesWP8
             // Handle reset requests for clearing the backstack
             RootFrame.Navigated += CheckForResetNavigation;
 
+            // Fast App Switching
+            RootFrame.Navigating += RootFrame_Navigating;
+
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
+        }
+
+        /// <summary>
+        /// Handle Fast App Switching
+        /// http://code.msdn.microsoft.com/wpapps/Fast-app-resume-backstack-f16baaa6
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            if (e.NavigationMode == NavigationMode.Reset)
+            {
+                wasRelaunched = true;
+            }
+            else if (e.NavigationMode == NavigationMode.New && wasRelaunched)
+            {
+                wasRelaunched = false;
+
+                if (e.Uri.ToString().Contains("/MainPage.xaml"))
+                {
+                    Debug.WriteLine("Fast App Switching detected");
+                    e.Cancel = true;
+                    RootFrame.Navigated -= ClearBackStackAfterReset;
+                }
+            }
         }
 
         // Do not add any additional code to this method

@@ -36,6 +36,7 @@ namespace EverydayTemplatesWP8.ViewModels
             }
             set
             {
+
                 amount = value;
                 WrittenAmount = NumberToWordsConverter.ConvertToMoney(amount);
                 NotifyPropertyChanged("Amount");

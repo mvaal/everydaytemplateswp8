@@ -12,7 +12,7 @@ namespace EverydayTemplatesWP8.Utilities
     public class NumberToWordsConverter
     {
         private static String[] numbers = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-        private static String[] tens = { "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninty" };
+        private static String[] tens = { "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninty" };
         private static String[] suffixes = { "Hundred", "Thousand", "Million", "Billion", "Trillion", "Quadrillion", "Quintillion", "Sextillion", "Septillion", "Octillion", "Nonillion", "Decillion", "Undecillion", "Duodecillion", "Tredecillion", "Quattuordecillion", "Quindecillion", "Sexdecillion", "Septdecillion", "Octodecillion", "Novemdecillion", "Vigintillion" };
         private static String[] decimals = { "", "Tenths", "Hundredths", "Thousandths", "Ten-Thousandths", "Hundred-Thousandths", "Millionths", "Ten-Millionths"};
 
@@ -30,7 +30,10 @@ namespace EverydayTemplatesWP8.Utilities
                 string strNumber = number.ToString();
                 string[] split = strNumber.Split('.');
                 wholePart = double.Parse(split[0]);
-                decimalPart = double.Parse(split[1]);
+                if (split.Length > 1)
+                {
+                    decimalPart = double.Parse(split[1]);
+                }
             }
             catch
             {
@@ -40,26 +43,33 @@ namespace EverydayTemplatesWP8.Utilities
 
         public static string ConvertToMoney(double number)
         {
-            if (number == 0)
-            {
-                return numbers[0];
-            }
-
             double wholePart;
             double decimalPart;
 
             SplitNumber(Math.Round(number, 2), out wholePart, out decimalPart);
+            if ((number * 100) % 10 == 0)
+            {
+                decimalPart *= 10;
+            }
 
             string result = "[Unable To Convert]";
             try
             {
-                StringBuilder sb = new StringBuilder(NumWords(wholePart));
+                StringBuilder sb = new StringBuilder();
+                if (wholePart > 0)
+                {
+                    sb.Append(NumWords(wholePart));
+                }
 
                 if (sb.Length > 0)
                 {
                     sb.Append(" and ");
                 }
-                
+
+                if (decimalPart < 10)
+                {
+                    sb.Append(0);
+                }
                 sb.Append((int)decimalPart).Append("/").Append("100");
                 result = sb.ToString();
             }
@@ -132,7 +142,7 @@ namespace EverydayTemplatesWP8.Utilities
                     sb.Append(NumWords(Math.Floor(number / pow))).Append(" ").Append(suffixes[(power / 3)]);
                     if (number % pow > 0)
                     {
-                        sb.Append(", ");
+                        sb.Append(" ");
                     }
                     number %= pow;
                 }

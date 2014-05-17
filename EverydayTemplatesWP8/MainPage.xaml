@@ -11,7 +11,8 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="Portrait" 
+    Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -19,9 +20,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel x:Name="TitlePanel" 
+                    Grid.Row="0" 
+                    Margin="12,17,0,28">
             <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
             <TextBlock Text="{Binding LocalizedResources.MainPageTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
@@ -32,12 +36,18 @@
                                     SelectionChanged="TemplateSelector_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Header}"/>
+                        <Border BorderBrush="{StaticResource PhoneForegroundBrush}" 
+                                BorderThickness="1"
+                                Margin="0,0,0,1">
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}" 
+                                       Text="{Binding Header}"/>
+                        </Border>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>
         </Grid>
-
+        <TextBlock Grid.Row="2"
+                   HorizontalAlignment="Center"
+                   Text="more coming soon!" />
     </Grid>
-
 </phone:PhoneApplicationPage>
