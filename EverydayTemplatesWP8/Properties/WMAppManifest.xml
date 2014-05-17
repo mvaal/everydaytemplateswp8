@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{45a72e7a-d1be-4c67-aa72-5669633c52e1}" Title="Everyday Templates" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Marcus Vaal" Description="Templates and Utilities for everyday use." Publisher="2 Pawns" PublisherID="{b430e9ec-0075-4252-8eaa-7f90065da4a9}">
+  <App xmlns="" ProductID="{45a72e7a-d1be-4c67-aa72-5669633c52e1}" Title="Everyday Templates" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Marcus Vaal" Description="Templates and Utilities for everyday use." Publisher="2Pawns" PublisherID="{b430e9ec-0075-4252-8eaa-7f90065da4a9}">
     <IconPath IsRelative="true" IsResource="false">AppIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

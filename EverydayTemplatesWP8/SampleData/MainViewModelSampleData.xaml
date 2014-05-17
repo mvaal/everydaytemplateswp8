@@ -4,6 +4,6 @@
     xmlns:vm="clr-namespace:EverydayTemplatesWP8.ViewModels">
 
     <vm:MainViewModel.TemplateMenuItems>
-        
+  
     </vm:MainViewModel.TemplateMenuItems>
 </vm:MainViewModel>
