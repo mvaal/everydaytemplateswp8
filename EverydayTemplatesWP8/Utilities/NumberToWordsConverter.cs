@@ -47,14 +47,15 @@ namespace EverydayTemplatesWP8.Utilities
             double decimalPart;
 
             SplitNumber(Math.Round(number, 2), out wholePart, out decimalPart);
-            if ((number * 100) % 10 == 0)
-            {
-                decimalPart *= 10;
-            }
 
             string result = "[Unable To Convert]";
             try
             {
+                if (((decimal)number * 100) % 10 == 0)
+                {
+                    decimalPart *= 10;
+                }
+
                 StringBuilder sb = new StringBuilder();
                 if (wholePart > 0)
                 {

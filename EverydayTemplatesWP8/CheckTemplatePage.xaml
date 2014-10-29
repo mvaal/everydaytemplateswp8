@@ -255,6 +255,7 @@
                                      HorizontalAlignment="Left"
                                      VerticalAlignment="Bottom"
                                      MinWidth="140"
+                                     MaxLength="15"
                                      FontSize="25" 
                                      Style="{StaticResource AmountTextBoxStyle}"
                                      InputScope="CurrencyAmount"

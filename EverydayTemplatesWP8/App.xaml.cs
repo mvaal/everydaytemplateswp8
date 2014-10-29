@@ -46,7 +46,7 @@ namespace EverydayTemplatesWP8
         /// </summary>
         public App()
         {
-            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "w8cad5e2");
+            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "w8c23e7d");
 
             // Global handler for uncaught exceptions.
             //UnhandledException += Application_UnhandledException;
