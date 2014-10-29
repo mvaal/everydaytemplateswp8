@@ -4,6 +4,7 @@
     xmlns:vm="clr-namespace:EverydayTemplatesWP8.ViewModels">
 
     <vm:MainViewModel.TemplateMenuItems>
-  
+        <vm:TemplateMenuItem UniqueId="test1" Url="test1" Header="test1"/>
+        <vm:TemplateMenuItem UniqueId="test2" Url="test2" Header="test2"/>
     </vm:MainViewModel.TemplateMenuItems>
 </vm:MainViewModel>

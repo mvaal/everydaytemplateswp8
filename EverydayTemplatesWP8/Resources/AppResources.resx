@@ -140,4 +140,7 @@
   <data name="TemplateCheck" xml:space="preserve">
     <value>check</value>
   </data>
+  <data name="TemplateLetter" xml:space="preserve">
+    <value>letter</value>
+  </data>
 </root>

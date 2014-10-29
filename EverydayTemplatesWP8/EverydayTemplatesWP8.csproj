@@ -97,6 +97,9 @@
     <Compile Include="CheckTemplatePage.xaml.cs">
       <DependentUpon>CheckTemplatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LetterTemplatePage.xaml.cs">
+      <DependentUpon>LetterTemplatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CheckTemplatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LetterTemplatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

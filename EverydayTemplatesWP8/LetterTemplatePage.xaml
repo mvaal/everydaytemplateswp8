@@ -1,0 +1,131 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="EverydayTemplatesWP8.LetterTemplatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mycontrols="clr-namespace:Karcus"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="2" 
+                BorderBrush="White"  >
+            <Grid x:Name="ContentPanel">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Return Address -->
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.Column="0"
+                            BorderBrush="White" 
+                            BorderThickness="0,0,0,1">
+                        <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="[sender's name]"/>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="0"
+                            BorderBrush="White" 
+                            BorderThickness="0,0,0,1">
+                        <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="[sender's street address]"/>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="0"
+                            BorderBrush="White" 
+                            BorderThickness="0,0,0,1">
+                        <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="[sender's city, state zip]"/>
+                    </Border>
+                </Grid>
+                <!-- Stamp is 7/8 x 1 -->
+                <Border Grid.Row="0" 
+                        Grid.Column="2"
+                        Width="120"
+                        Height="135"
+                        HorizontalAlignment="Right"
+                        BorderBrush="White" 
+                        BorderThickness="1"
+                        Margin="0,10,10,0">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="[stamp]"/>
+                </Border>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Row="0" Grid.Column="0"
+                            BorderBrush="White" 
+                            BorderThickness="0,0,0,1">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="{StaticResource PhoneAccentBrush}"
+                                       Text="[recipient's name]"/>
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="0"
+                            BorderBrush="White" 
+                            BorderThickness="0,0,0,1">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="{StaticResource PhoneAccentBrush}"
+                                       Text="[recipient's street address]"/>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="0"
+                            BorderBrush="White" 
+                            BorderThickness="0,0,0,1">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="{StaticResource PhoneAccentBrush}"
+                                       Text="[recipient's city, state zip]"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        <mycontrols:AdControl Grid.Row="2"
+                              Background="Transparent"
+			                  PubCenterAdUnitId="174267"
+			                  PubCenterApplicationId="4bb1954c-4296-40d0-a3b6-bda04dc6c685"
+                              AdDuplexAppId="101515"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

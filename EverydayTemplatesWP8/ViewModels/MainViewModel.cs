@@ -38,7 +38,8 @@ namespace EverydayTemplatesWP8.ViewModels
         public void LoadData()
         {
             TemplateMenuItem[] templateMenuItems = new TemplateMenuItem[] {
-                new TemplateMenuItem("check", AppResources.TemplateCheck,String.Format("/CheckTemplatePage.xaml"))
+                new TemplateMenuItem("check", AppResources.TemplateCheck,String.Format("/CheckTemplatePage.xaml")),
+                new TemplateMenuItem("letter", AppResources.TemplateLetter,String.Format("/LetterTemplatePage.xaml"))
             };
             TemplateMenuItems = new ObservableCollection<TemplateMenuItem>(templateMenuItems);
 
