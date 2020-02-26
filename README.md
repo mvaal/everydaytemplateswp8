@@ -4,4 +4,4 @@ Includes:
 * Check
 * Letter
 
-This was a project for DVLUP. Windows Phone is now 
+This was a project for DVLUP. Windows Phone is now discontinued, so sharing with general public and no longer maintained.
